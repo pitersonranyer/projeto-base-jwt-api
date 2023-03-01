@@ -21,15 +21,15 @@ const validarSenha = (req, res, next) => {
     const schema = new passwordValidator();
 
     schema
-        .is().min(8)
-        .has().lowercase()
-        .has().digits()
+        .is().min(4)
+  //      .has().lowercase()
+  //     .has().digits()
         .has().not().spaces();
 
-  //  if (!schema.validate(senha)) {
-  //      return res.status(400).end();
-  //   
-  //  }
+    if (!schema.validate(senha)) {
+        return res.status(400).end();
+     
+    }
     return next();
 };
 
